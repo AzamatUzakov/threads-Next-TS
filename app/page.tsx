@@ -10,7 +10,8 @@ export default function Home() {
 				<hr />
 			</form>
 			<div className="flex flex-col items-start">
-				<Post />
+				
+			
 			</div>
 		</div>
 	);
