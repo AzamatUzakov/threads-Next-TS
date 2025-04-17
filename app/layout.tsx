@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
-import { TbBrandThreads } from "react-icons/tb";
 import "./globals.css";
 import Link from "next/link";
-import Image from "next/image";
+import { TbBrandThreads } from "react-icons/tb";
+import { CgMenuRightAlt } from "react-icons/cg";
+import { BiArrowBack } from "react-icons/bi";
+
+
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button";
+
 
 export const metadata: Metadata = {
 	title: "Home . Threads",
@@ -17,9 +30,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`antialiased flex items-center justify-between w-full `}
+				className={`p-4 antialiased  items-center justify-between w-full md:flex `}
 			>
-				<aside className="flex flex-col justify-between h-screen w-fit px-4 py-6">
+				<aside className="hidden md:flex flex-col justify-between h-screen w-fit px-4 py-6">
 					<Link href="/">
 						<TbBrandThreads color="white" size={34} />
 					</Link>
@@ -78,10 +91,41 @@ export default function RootLayout({
 						<button>set</button>
 					</div>
 				</aside>
-				<main className="max-w-[500px] w-full mx-auto bg-white h-[95vh] rounded-2xl overflow-y-auto">
+
+				<header className="h-[65px] w-full fixed top-0 left-0 pt-4 pb-5 px-4 backdrop-blur-[10px]  bg-[rgba(0,0,0,0.69)] md:hidden">
+					<div className="flex  items-center justify-between">
+						<Link href={"/"}>
+							<BiArrowBack size={22} className="text-[#4d4d4d] cursor-pointer w-[55px] hover:text-white animate movie opacity-0" />
+						</Link>
+						<Link href="/">
+							<TbBrandThreads color="white" size={34} className="hover:scale-[1.1] animate" />
+						</Link>
+
+						<div className="hidden">	<DropdownMenu >
+							<DropdownMenuTrigger>						<CgMenuRightAlt size={22} className="text-[#4d4d4d] cursor-pointer hover:text-white animate movie" /></DropdownMenuTrigger>
+							<DropdownMenuContent>
+								<DropdownMenuLabel>My Account</DropdownMenuLabel>
+								<DropdownMenuSeparator />
+								<DropdownMenuItem>Profile</DropdownMenuItem>
+								<DropdownMenuItem>Billing</DropdownMenuItem>
+								<DropdownMenuItem>Team</DropdownMenuItem>
+								<DropdownMenuItem>Subscription</DropdownMenuItem>
+							</DropdownMenuContent>
+						</DropdownMenu>
+						</div>
+						<Button className="animate bg-white text-black text-[12px] cursor-pointer w-[60px] h-[30px] hover:bg-white">Войти</Button>
+					</div>
+				</header>
+
+				<main className="text-white w-full mx-auto  md:h-[95vh] rounded-2xl overflow-y-auto">
 					{children}
 				</main>
-				<button className="text-white">+</button>
+				<button className="hidden text-white">+</button>
+
+				<div>
+
+				</div>
+
 			</body>
 		</html>
 	);
