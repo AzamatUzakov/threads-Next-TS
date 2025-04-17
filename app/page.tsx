@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
 	return (
-		<div className="">
+		<div className="text">
 			<form action="">
-				<img src="" alt="" />
+				<img src="lcd,lc,dl" alt="" />
 				<input type="text" />
 				<button>post</button>
 				<hr />

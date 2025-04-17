@@ -113,7 +113,7 @@
 }
 
 body {
-	background-color: #101010;
+	background-color: black;
 }
 
 .animate {
@@ -125,6 +125,11 @@ body {
 
 }
 
+.scroll-none::-webkit-scrollbar {
+	display: none;
+
+}
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
@@ -132,5 +137,11 @@ body {
 
 	body {
 		@apply bg-black text-foreground;
+	}
+}
+
+@media (max-width:768px) {
+	body {
+		background-color: #101010;
 	}
 }
