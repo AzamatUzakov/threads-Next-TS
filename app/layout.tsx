@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Link from "next/link";
-import { TbBrandThreads } from "react-icons/tb";
-import { CgMenuRightAlt } from "react-icons/cg";
-import { BiArrowBack } from "react-icons/bi";
 
+import NavButton from "@/components/custom/NavButton";
+import { Button } from "@/components/ui/button";
 
 import {
 	DropdownMenu,
@@ -14,13 +12,14 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { TbBrandThreads } from "react-icons/tb";
+import { CgMenuRightAlt } from "react-icons/cg";
+import { BiArrowBack } from "react-icons/bi";
 import { GoHomeFill, GoPerson } from "react-icons/go";
 import { IoSearch } from "react-icons/io5";
-import { BsPencilSquare } from "react-icons/bs";
 import { FiHeart, FiPlus } from "react-icons/fi";
 import { RiInstagramLine } from "react-icons/ri";
-import { FaPlus } from "react-icons/fa";
 import { LuPin } from "react-icons/lu";
 
 
@@ -37,7 +36,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`p-4 pb-0 antialiased  items-end justify-between w-full overflow-hidden md:flex `}
+				className={`p-4 pb-0 antialiased  items-end justify-between w-full md:overflow-hidden md:flex `}
 			>
 				<aside className="hidden md:flex flex-col justify-between h-screen w-fit px-0 pt-6 py-9">
 					<Link href="/">
@@ -71,9 +70,11 @@ export default function RootLayout({
 						</ul>
 					</nav>
 					<div className="flex flex-col">
-						<button>									<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><LuPin color="" className="text-white text-[25px] cursor-pointer" /></div>
+						<button>
+							<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><LuPin color="" className="text-white text-[25px] cursor-pointer" /></div>
 						</button>
-						<button>									<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><CgMenuRightAlt color="" className="text-white text-[25px] cursor-pointer rotate-180" /></div>
+						<button>
+							<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><CgMenuRightAlt color="" className="text-white text-[25px] cursor-pointer rotate-180" /></div>
 						</button>
 					</div>
 				</aside>
@@ -87,29 +88,35 @@ export default function RootLayout({
 							<TbBrandThreads color="white" size={34} className="hover:scale-[1.1] animate" />
 						</Link>
 
-						<div className="hidden">	<DropdownMenu >
-							<DropdownMenuTrigger>						<CgMenuRightAlt size={22} className="text-[#4d4d4d] cursor-pointer hover:text-white animate movie" /></DropdownMenuTrigger>
-							<DropdownMenuContent>
-								<DropdownMenuLabel>My Account</DropdownMenuLabel>
-								<DropdownMenuSeparator />
-								<DropdownMenuItem>Profile</DropdownMenuItem>
-								<DropdownMenuItem>Billing</DropdownMenuItem>
-								<DropdownMenuItem>Team</DropdownMenuItem>
-								<DropdownMenuItem>Subscription</DropdownMenuItem>
-							</DropdownMenuContent>
-						</DropdownMenu>
+						<div className="hidden">
+							<DropdownMenu >
+
+								<DropdownMenuTrigger>
+									<CgMenuRightAlt size={22} className="text-[#4d4d4d] cursor-pointer hover:text-white animate movie" /></DropdownMenuTrigger>
+								<DropdownMenuContent>
+									<DropdownMenuLabel>My Account</DropdownMenuLabel>
+									<DropdownMenuSeparator />
+									<DropdownMenuItem>Profile</DropdownMenuItem>
+									<DropdownMenuItem>Billing</DropdownMenuItem>
+									<DropdownMenuItem>Team</DropdownMenuItem>
+									<DropdownMenuItem>Subscription</DropdownMenuItem>
+								</DropdownMenuContent>
+							</DropdownMenu>
 						</div>
 						<Button className="animate bg-white text-black text-[12px] cursor-pointer w-[60px] h-[30px] hover:bg-white">Войти</Button>
 					</div>
 				</header>
 
-				<div className="flex items-start gap-2 mx-auto" >
+				<div className="flex items-start gap-2 mx-auto mt-15 md:mt-0" >
 
-					<main className="text-white  w-full mx-auto bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px] overflow-y-auto scroll-none">
-						{children}
+					<div>
+						<p className="text-white font-semibold text-center mb-4 hidden md:block">Главная</p>
+						<main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px]  scroll-none">
 
-					</main>
-					<div className="hidden w-[310px] bg-[#101010] max-h-[100%] rounded-2xl py-7 px-2.5 md:block">
+							{children}
+						</main>
+					</div>
+					<div className="hidden w-[310px] bg-[#101010] max-h-[100%] rounded-2xl py-7 px-2.5 mt-10 xl:block">
 						<h2 className="text-white font-bold text-xl leading-5 text-center">Войдите или <br /> зарегистрируйтесь в Threads</h2>
 						<p className="text-center text-[15px] text-[#777777] mt-3 font-normal">Узнавайте, о чем говорят люди, и вступайте в разговоры.</p>
 						<button className="w-full py-6 px-5 cursor-pointer bg-[#080808] text-start leading-5 gap-2 rounded-2xl flex items-center  text-[white] text-[16px] font-semibold mt-6">
@@ -118,18 +125,13 @@ export default function RootLayout({
 						</button>
 						<p className="text-center text-[#777777] mt-6 font-normal cursor-pointer">Войти по имени пользователя</p>
 					</div>
+					<Button className="animate bg-white text-black text-[14px] cursor-pointer w-[80px] h-[35px] hover:bg-white hidden md:block xl:hidden">Войти</Button>
+
 				</div>
 
 				<button className="hidden text-white">+</button>
 
-				<div className="h-[65px] w-full fixed bottom-0 left-0 pt-4 pb-5 px-1 backdrop-blur-[10px] flex justify-between items-center bg-[rgba(0,0,0,0.69)] md:hidden">
-					<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-5 animate rounded-lg"><GoHomeFill color="" className="text-white text-[22px] cursor-pointer" /></div>
-					<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-5 animate rounded-lg"><IoSearch color="" className="text-white text-[22px] cursor-pointer" /></div>
-					<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-5 animate rounded-lg"><BsPencilSquare color="" className="text-white text-[22px] cursor-pointer" /></div>
-					<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-5 animate rounded-lg"><FiHeart color="" className="text-white text-[22px] cursor-pointer" /></div>
-					<div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-5 animate rounded-lg"><GoPerson color="" className="text-white text-[22px] cursor-pointer" /></div>
-
-				</div>
+				<NavButton />
 
 			</body>
 		</html>
