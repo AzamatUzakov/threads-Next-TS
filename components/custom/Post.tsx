@@ -22,7 +22,7 @@ const Post: React.FC<PostProps> = () => {
     return (
         <>
 
-            <div className="flex w-full gap-4">
+            <div className="flex w-full gap-4 mb-6">
                 <Avatar className="w-[36px] h-[36px] rounded-2xl">
                     <AvatarImage className="rounded-3xl" src="https://github.com/shadcn.png" />
                     <AvatarFallback>CN</AvatarFallback>
@@ -59,6 +59,7 @@ const Post: React.FC<PostProps> = () => {
                         </div>
 
                     </div>
+                    <hr className="mt-6 w-[calc(100%+6rem)] -ml-20 border-0 h-[1px] bg-[#383939]"/>
                 </div>
             </div>
         </>

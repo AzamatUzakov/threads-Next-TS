@@ -10,8 +10,12 @@ export default function Home() {
 				<button>post</button>
 				<hr />
 			</form>
-			<div className="flex flex-col items-start py-3 px-5">
+			<div className="flex flex-col items-start py-3 px-1 md:px-5">
 <Post/>
+				<Post />
+<Post/>
+				<Post />
+
 			</div>
 		</div>
 	);

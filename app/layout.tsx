@@ -69,7 +69,7 @@ export default function RootLayout({
 					</div>
 				</header>
 
-				<div className="flex items-start gap-2 mx-auto mt-15 md:mt-0" >
+				<div className="flex items-start gap-2 mx-auto mt-15 mb-15 md:mt-0" >
 
 					<div>
 						<p className="text-white font-semibold text-center mb-4 hidden md:block">Главная</p>
