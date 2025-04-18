@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React from "react";
 import { BsPencilSquare } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
 import { GoHomeFill, GoPerson } from "react-icons/go";
@@ -11,8 +11,8 @@ interface NavButtonProps {
 }
 
 const NavButton: React.FC<NavButtonProps> = () => {
-    
-
+   
+   
     return (
         <>
 

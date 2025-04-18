@@ -34,7 +34,7 @@ const Aside: React.FC<AsideProps> = () => {
 
     return (
         <>
-            <aside className="hidden md:flex flex-col justify-between h-screen w-fit px-0 pt-6 py-9">
+            <aside className="hidden md:flex flex-col justify-between h-screen w-fit px-0 pt-6 pb-20">
                 <Link href="/">
                     <div className="w-full flex justify-center  animate rounded-lg"><TbBrandThreads color="white" size={34} className="text-center" /></div>
                 </Link>
