@@ -1,5 +1,5 @@
 import Post from "@/components/custom/Post";
-import Image from "next/image";
+
 
 export default function Home() {
 	return (
@@ -11,11 +11,10 @@ export default function Home() {
 				<hr />
 			</form>
 			<div className="flex flex-col items-start py-3 px-1 md:px-5">
-<Post/>
 				<Post />
-<Post/>
 				<Post />
-
+				<Post />
+				<Post />
 			</div>
 		</div>
 	);

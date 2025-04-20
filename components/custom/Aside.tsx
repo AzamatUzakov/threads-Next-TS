@@ -1,5 +1,6 @@
 "use client"
 
+import { AlertDialogTrigger } from "@radix-ui/react-alert-dialog";
 import Link from "next/link";
 import React, { useState } from "react";
 import { CgMenuRightAlt } from "react-icons/cg";
@@ -9,18 +10,28 @@ import { IoSearch } from "react-icons/io5";
 import { LuPin } from "react-icons/lu";
 import { TbBrandThreads } from "react-icons/tb";
 
-interface AsideProps {
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
+import ModalReagister from "./ModalRegister";
 
-}
+
 const icons = [
-    
+
     <Link href="/">
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 px-4 animate rounded-lg"><GoHomeFill /></div>
     </Link>,
     <Link href="/search">
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><IoSearch /></div>
     </Link>,
-    <div className="bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><FiPlus  /></div>,
+    <div className="bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><FiPlus /></div>,
     <Link href="/activity">
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><FiHeart /></div>
     </Link>,
@@ -29,8 +40,9 @@ const icons = [
     </Link>
 ]
 
-const Aside: React.FC<AsideProps> = () => {
+const Aside: React.FC = () => {
     const [actText, setActText] = useState<null | string | number>(0)
+    const [modalBtn, setModalBtn] = useState(false)
 
     return (
         <>
@@ -43,23 +55,26 @@ const Aside: React.FC<AsideProps> = () => {
                         {icons.map((icon, index) => {
                             return (
                                 <li key={index}
-                                    onClick={() => setActText(index)}
+                                    onClick={() => { setActText(index), index >= 2 ? setModalBtn(true) : setModalBtn(false) }}
                                     className={`text-[color(display-p3 0.3 0.3 0.3)] text-[25px] cursor-pointer ${actText === index ? "text-white" : "text-[color(display-p3 0.3 0.3 0.3)]"}`}
                                 >
                                     {icon}
-                                </li>)
+                                </li>
+                            )
                         })}
                     </ul>
                 </nav>
                 <div className="flex flex-col">
-                    <button>
+                    <button onClick={() => setModalBtn(true)}>
                         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><LuPin color="" className="text-[gray] text-[25px] cursor-pointer" /></div>
                     </button>
-                    <button>
+                    <button onClick={() => setModalBtn(true)}>
                         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><CgMenuRightAlt color="" className="text-[gray] text-[25px] cursor-pointer rotate-180" /></div>
                     </button>
                 </div>
+                <ModalReagister setModalBtn={setModalBtn} modalBtn={modalBtn} />
             </aside >
+
         </>
     );
 }
