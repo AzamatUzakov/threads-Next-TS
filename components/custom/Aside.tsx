@@ -21,6 +21,7 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import ModalReagister from "./ModalRegister";
+import { ModeToggle } from "./ToggleTheme";
 
 
 const icons = [
@@ -32,10 +33,10 @@ const icons = [
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><IoSearch /></div>
     </Link>,
     <div className="bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><FiPlus /></div>,
-    <Link href="/activity">
+    <Link href="#">
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><FiHeart /></div>
     </Link>,
-    <Link href="/profile">
+    <Link href="#">
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><GoPerson /></div>
     </Link>
 ]

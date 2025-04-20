@@ -4,6 +4,7 @@ import Post from "@/components/custom/Post";
 export default function Home() {
 	return (
 		<div className="text">
+			
 			<form action="" className="hidden">
 				<img src="lcd,lc,dl" alt="" />
 				<input type="text" />

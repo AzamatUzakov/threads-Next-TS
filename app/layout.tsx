@@ -22,6 +22,8 @@ import { FiHeart, FiPlus } from "react-icons/fi";
 import { RiInstagramLine } from "react-icons/ri";
 import { LuPin } from "react-icons/lu";
 import Aside from "@/components/custom/Aside";
+import { ThemeProvider } from "@/components/custom/theme-provider";
+import { ModeToggle } from "@/components/custom/ToggleTheme";
 
 
 export const metadata: Metadata = {
@@ -35,13 +37,21 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body className="md:overflow-hidden">
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+
 				<div className="p-4 pb-0 antialiased  items-end justify-between w-full  md:flex ">
 					<Aside />
 
 					<header className="h-[65px] w-full fixed top-0 left-0 pt-4 pb-5 px-4 backdrop-blur-[10px]  bg-[rgba(0,0,0,0.69)] md:hidden">
-						<div className="flex  items-center justify-between">
+				
+							<div className="flex  items-center justify-between">
 							<Link href={"/"}>
 								<BiArrowBack size={22} className="text-[#4d4d4d] cursor-pointer w-[55px] hover:text-white animate movie opacity-0" />
 							</Link>
@@ -72,10 +82,10 @@ export default function RootLayout({
 
 						<div>
 							<p className="text-white font-semibold text-center mb-4 hidden md:block">Главная</p>
-							<main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px]  scroll-none">
-
-								{children}
-							</main>
+								<main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px]  scroll-none">
+					
+									{children}
+								</main>
 						</div>
 						<div className="hidden w-[310px] bg-[#101010] max-h-[100%] rounded-2xl py-7 px-2.5 mt-10 xl:block">
 							<h2 className="text-white font-bold text-xl leading-5 text-center">Войдите или <br /> зарегистрируйтесь в Threads</h2>
@@ -93,7 +103,10 @@ export default function RootLayout({
 					<button className="hidden text-white">+</button>
 
 					<NavButton />
-				</div>
+					</div>
+
+				</ThemeProvider>
+
 			</body>
 		</html>
 	);
