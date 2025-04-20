@@ -35,7 +35,7 @@ const ModalReagister: React.FC<ModalReagisterProps> = ({ modalBtn, setModalBtn }
                         <AlertDialogDescription className="font-normal text-[#777777] text-center mt-3 mb-2">
                             Присоединяйтесь к Threads, чтобы делиться мыслями, быть в курсе событий, подписываться на знакомых и делать многое другое.
                         </AlertDialogDescription>
-                        <AlertDialogDescription className="font-bold text-[#F3F5F7] text-center text-lg  mt-3 mb-0 flex items-center justify-center gap-2 border border-white rounded-xl py-5 px-3 cursor-pointer animate hover:scale-[0.9]">
+                            <AlertDialogDescription className="font-bold text-[#F3F5F7] text-center text-lg  mt-3 mb-0 flex items-center justify-center gap-2 border border-[#323333] rounded-xl py-5 px-3 cursor-pointer animate hover:scale-[0.9]">
                             <Image alt="insta" src={"/instagram-logo.png"} width={500} height={500} className="w-[50px]" />
                             Продолжить с аккаунтом instagram
                             <MdKeyboardArrowRight size={25} className="mt-1" />
