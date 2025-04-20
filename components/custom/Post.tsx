@@ -59,7 +59,7 @@ const Post: React.FC<PostProps> = () => {
                         </div>
 
                     </div>
-                    <hr className="mt-6 w-[calc(100%+6rem)] -ml-20 border-0 h-[1px] bg-[#383939]"/>
+                    <hr className="mt-6 w-[calc(100%+6rem)] -ml-20 border-0 h-[1px] bg-[#383939]" />
                 </div>
             </div>
         </>
