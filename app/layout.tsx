@@ -21,6 +21,7 @@ import { RiInstagramLine } from "react-icons/ri";
 
 import Aside from "@/components/custom/Aside";
 import { ThemeProvider } from "@/components/custom/theme-provider";
+import PlusBtn from "@/components/custom/PlusBtn";
 
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className="md:overflow-hidden">
+			<body className="md:overflow-hidden" >
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
@@ -43,7 +44,7 @@ export default function RootLayout({
 					disableTransitionOnChange
 				>
 
-				<div className="p-4 pb-0 antialiased  items-end justify-between w-full  md:flex ">
+				<div className="p-4 pb-0 antialiased  items-end justify-between w-full  md:flex  relative">
 					<Aside />
 
 					<header className="h-[65px] w-full fixed top-0 left-0 pt-4 pb-5 px-4 backdrop-blur-[10px]  bg-[rgba(0,0,0,0.69)] md:hidden">
@@ -99,7 +100,10 @@ export default function RootLayout({
 
 					<button className="hidden text-white">+</button>
 
-					<NavButton />
+						<NavButton />
+						
+
+						<PlusBtn/>
 					</div>
 
 				</ThemeProvider>

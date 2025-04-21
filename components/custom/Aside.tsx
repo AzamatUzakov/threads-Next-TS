@@ -1,6 +1,4 @@
 "use client"
-
-import { AlertDialogTrigger } from "@radix-ui/react-alert-dialog";
 import Link from "next/link";
 import React, { useState } from "react";
 import { CgMenuRightAlt } from "react-icons/cg";
@@ -11,17 +9,16 @@ import { LuPin } from "react-icons/lu";
 import { TbBrandThreads } from "react-icons/tb";
 
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 import ModalReagister from "./ModalRegister";
-import { ModeToggle } from "./ToggleTheme";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 
 const icons = [
@@ -69,10 +66,25 @@ const Aside: React.FC = () => {
                     <button onClick={() => setModalBtn(true)}>
                         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><LuPin color="" className="text-[gray] text-[25px] cursor-pointer" /></div>
                     </button>
-                    <button onClick={() => setModalBtn(true)}>
-                        <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><CgMenuRightAlt color="" className="text-[gray] text-[25px] cursor-pointer rotate-180" /></div>
-                    </button>
-                </div>
+                    {/*                     <button onClick={() => setModalBtn(true)}>
+ */}
+
+
+                    <DropdownMenu>
+                        <DropdownMenuTrigger><div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><CgMenuRightAlt color="" className="text-[gray] text-[25px] cursor-pointer rotate-180" /></div></DropdownMenuTrigger>
+                        <DropdownMenuContent className="ml-10 w-[200px] cursor-pointer" >
+                            <DropdownMenuItem className="flex item-center justify-between  animate p-3 cursor-pointer">Внешний вид <MdOutlineKeyboardArrowRight   className="mt-1"/></DropdownMenuItem>
+                            <DropdownMenuItem className="p-3 cursor-pointer animate ">Статистика</DropdownMenuItem>
+                            <DropdownMenuItem className="p-3 cursor-pointer animate ">Настройки</DropdownMenuItem>
+                            <DropdownMenuSeparator />
+
+                            <DropdownMenuItem className="p-3 cursor-pointer  animate ">Сообщить о проблеме</DropdownMenuItem>
+                            <DropdownMenuItem className="p-3 cursor-pointer  animate  text-red-500 hover:text-red-500">Выйти</DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    {/*                     </button>
+ */}                </div>
                 <ModalReagister setModalBtn={setModalBtn} modalBtn={modalBtn} />
             </aside >
 
