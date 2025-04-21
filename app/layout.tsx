@@ -13,17 +13,14 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link";
+
 import { TbBrandThreads } from "react-icons/tb";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { BiArrowBack } from "react-icons/bi";
-import { GoHomeFill, GoPerson } from "react-icons/go";
-import { IoSearch } from "react-icons/io5";
-import { FiHeart, FiPlus } from "react-icons/fi";
 import { RiInstagramLine } from "react-icons/ri";
-import { LuPin } from "react-icons/lu";
+
 import Aside from "@/components/custom/Aside";
 import { ThemeProvider } from "@/components/custom/theme-provider";
-import { ModeToggle } from "@/components/custom/ToggleTheme";
 
 
 export const metadata: Metadata = {
@@ -82,7 +79,7 @@ export default function RootLayout({
 
 						<div>
 							<p className="text-white font-semibold text-center mb-4 hidden md:block">Главная</p>
-								<main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px]  scroll-none">
+								<main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px] py-6 px-1 md:px-5  scroll-none">
 					
 									{children}
 								</main>
