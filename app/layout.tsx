@@ -85,7 +85,7 @@ export default function RootLayout({
 									{children}
 								</main>
 						</div>
-						<div className="hidden w-[310px] bg-[#101010]  rounded-2xl py-7 px-2.5 mt-10 xl:block">
+						<div className="hidden w-[350px] bg-[#101010]  rounded-2xl py-7 px-2.5 mt-10 xl:block">
 							<h2 className="text-white font-bold text-xl leading-5 text-center">Войдите или <br /> зарегистрируйтесь в Threads</h2>
 							<p className="text-center text-[15px] text-[#777777] mt-3 font-normal">Узнавайте, о чем говорят люди, и вступайте в разговоры.</p>
 							<button className="w-full py-6 px-5 cursor-pointer bg-[#080808] text-start leading-5 gap-2 rounded-2xl flex items-center  text-[white] text-[16px] font-semibold mt-6">
