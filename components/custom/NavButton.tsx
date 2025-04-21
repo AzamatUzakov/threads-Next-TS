@@ -23,7 +23,7 @@ const icons = [
     <Link href="#">
         <FiHeart />
     </Link>,
-    <Link href="#">
+    <Link href="/profile">
         <GoPerson />
     </Link>
 ]
@@ -42,7 +42,7 @@ const NavButton: React.FC<NavButtonProps> = () => {
                 {icons.map((icon, index) => {
                     return (
                         <div key={index}
-                            onClick={() => { setActText(index), index >= 2 ? setModalBtn(true) : setModalBtn(false) }}
+                            onClick={() => { setActText(index), index === 2 || index === 3 ? setModalBtn(true) : setModalBtn(false) }}
                             className={`hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-5 animate text-[25px] rounded-xl cursor-pointer ${actText === index ? "text-white" : "text-[#4d4d4d]"}`}
                         >
                             {icon}

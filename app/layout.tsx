@@ -78,7 +78,7 @@ export default function RootLayout({
 
 					<div className="flex items-start gap-2 mx-auto mt-15   md:mt-0" >
 
-						<div>
+						<div className="w-full">
 							<p className="text-white font-semibold text-center mb-4 hidden md:block">Главная</p>
 								<main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px] py-6 px-1 md:px-5  scroll-none">
 					

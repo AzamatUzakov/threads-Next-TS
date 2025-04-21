@@ -33,7 +33,7 @@ const icons = [
     <Link href="#">
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><FiHeart /></div>
     </Link>,
-    <Link href="#">
+    <Link href="/profile">
         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><GoPerson /></div>
     </Link>
 ]
@@ -53,7 +53,7 @@ const Aside: React.FC = () => {
                         {icons.map((icon, index) => {
                             return (
                                 <li key={index}
-                                    onClick={() => { setActText(index), index >= 2 ? setModalBtn(true) : setModalBtn(false) }}
+                                    onClick={() => { setActText(index), index === 2 || index === 3 ? setModalBtn(true) : setModalBtn(false) }}
                                     className={`text-[color(display-p3 0.3 0.3 0.3)] text-[25px] cursor-pointer ${actText === index ? "text-white" : "text-[color(display-p3 0.3 0.3 0.3)]"}`}
                                 >
                                     {icon}
