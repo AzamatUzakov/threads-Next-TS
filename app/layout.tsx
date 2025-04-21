@@ -78,14 +78,14 @@ export default function RootLayout({
 
 					<div className="flex items-start gap-2 mx-auto mt-15   md:mt-0" >
 
-						<div className="w-full">
+						<div className="w-full md:w-fit">
 							<p className="text-white font-semibold text-center mb-4 hidden md:block">Главная</p>
 								<main className="overflow-y-auto text-white  w-full mx-auto bg-black md:bg-[#101010]  md:h-[90vh] md:w-[550px] rounded-2xl rounded-b-[0px] py-6 px-1 md:px-5  scroll-none">
 					
 									{children}
 								</main>
 						</div>
-						<div className="hidden w-[310px] bg-[#101010] max-h-[100%] rounded-2xl py-7 px-2.5 mt-10 xl:block">
+						<div className="hidden w-[310px] bg-[#101010]  rounded-2xl py-7 px-2.5 mt-10 xl:block">
 							<h2 className="text-white font-bold text-xl leading-5 text-center">Войдите или <br /> зарегистрируйтесь в Threads</h2>
 							<p className="text-center text-[15px] text-[#777777] mt-3 font-normal">Узнавайте, о чем говорят люди, и вступайте в разговоры.</p>
 							<button className="w-full py-6 px-5 cursor-pointer bg-[#080808] text-start leading-5 gap-2 rounded-2xl flex items-center  text-[white] text-[16px] font-semibold mt-6">
