@@ -19,6 +19,7 @@ import {
 
 import ModalReagister from "./ModalRegister";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { signOut, useSession } from "next-auth/react";
 
 
 const icons = [
@@ -41,6 +42,7 @@ const icons = [
 const Aside: React.FC = () => {
     const [actText, setActText] = useState<null | string | number>(0)
     const [modalBtn, setModalBtn] = useState(false)
+    const { data: session } = useSession()
 
     return (
         <>
@@ -53,7 +55,14 @@ const Aside: React.FC = () => {
                         {icons.map((icon, index) => {
                             return (
                                 <li key={index}
-                                    onClick={() => { setActText(index), index === 2 || index === 3 ? setModalBtn(true) : setModalBtn(false) }}
+                                    onClick={() => {
+                                        setActText(index);
+
+                                        if (!session) {
+                                            setModalBtn(index >= 2)
+                                        } else { setModalBtn(false) }
+
+                                    }}
                                     className={`text-[color(display-p3 0.3 0.3 0.3)] text-[25px] cursor-pointer ${actText === index ? "text-white" : "text-[color(display-p3 0.3 0.3 0.3)]"}`}
                                 >
                                     {icon}
@@ -63,30 +72,33 @@ const Aside: React.FC = () => {
                     </ul>
                 </nav>
                 <div className="flex flex-col">
-                    <button onClick={() => setModalBtn(true)}>
+                    <button onClick={() => session ? setModalBtn(false) : setModalBtn(true)}>
                         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><LuPin color="" className="text-[gray] text-[25px] cursor-pointer" /></div>
                     </button>
-                    {/*                     <button onClick={() => setModalBtn(true)}>
- */}
+    
 
 
                     <DropdownMenu>
                         <DropdownMenuTrigger><div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><CgMenuRightAlt color="" className="text-[gray] text-[25px] cursor-pointer rotate-180" /></div></DropdownMenuTrigger>
                         <DropdownMenuContent className="ml-10 w-[200px] cursor-pointer" >
-                            <DropdownMenuItem className="flex item-center justify-between  animate p-3 cursor-pointer">Внешний вид <MdOutlineKeyboardArrowRight   className="mt-1"/></DropdownMenuItem>
-                            <DropdownMenuItem className="p-3 cursor-pointer animate ">Статистика</DropdownMenuItem>
-                            <DropdownMenuItem className="p-3 cursor-pointer animate ">Настройки</DropdownMenuItem>
+                            <DropdownMenuItem className="flex item-center justify-between  animate p-3 cursor-pointer">Внешний вид <MdOutlineKeyboardArrowRight className="mt-1" /></DropdownMenuItem>
+                            {session && <><DropdownMenuItem className="p-3 cursor-pointer animate ">Статистика</DropdownMenuItem>
+                                <DropdownMenuItem className="p-3 cursor-pointer animate ">Настройки</DropdownMenuItem>
+                            </>}
                             <DropdownMenuSeparator />
 
                             <DropdownMenuItem className="p-3 cursor-pointer  animate ">Сообщить о проблеме</DropdownMenuItem>
-                            <DropdownMenuItem className="p-3 cursor-pointer  animate  text-red-500 hover:text-red-500">Выйти</DropdownMenuItem>
+                            {
+                                session && <DropdownMenuItem className="p-3 cursor-pointer  animate  text-red-500 hover:text-red-500"
+                                    onClick={() => session && signOut()}
+                                >Выйти</DropdownMenuItem>
+                            }
                         </DropdownMenuContent>
                     </DropdownMenu>
 
-                    {/*                     </button>
- */}                </div>
+                </div>
             </aside >
-                <ModalReagister setModalBtn={setModalBtn} modalBtn={modalBtn} />
+            <ModalReagister setModalBtn={setModalBtn} modalBtn={modalBtn} />
 
         </>
     );

@@ -1,21 +1,19 @@
+"use client"
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { AiOutlineLink } from "react-icons/ai";
-import { BiRepost } from "react-icons/bi";
-import { BsThreeDots } from "react-icons/bs";
-import { FaRegComment } from "react-icons/fa";
-import { IoIosHeartEmpty } from "react-icons/io";
-import { LuSend } from "react-icons/lu";
+import { useSession } from "next-auth/react";
+
 
 interface RecomendationFollowProps {
 
 }
 
 const RecomendationFollow: React.FC<RecomendationFollowProps> = () => {
+  
+  const {data:session}= useSession()
     return (
 
         <>
-
+{session &&
             <div className="flex w-full gap-4 mb-6">
                 <Avatar className="w-[36px] h-[36px] rounded-2xl">
                     <AvatarImage className="rounded-3xl" src="https://github.com/shadcn.png" />
@@ -41,7 +39,8 @@ const RecomendationFollow: React.FC<RecomendationFollowProps> = () => {
                     <hr className="mt-3 w-[100%] border-0 h-[1px] bg-[#383939]" />
                     </div>
                 </div>
-            </div>
+                </div>
+            }
         </>
     );
 }

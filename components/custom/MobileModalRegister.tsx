@@ -12,6 +12,7 @@ import {
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { signIn } from "next-auth/react";
 
 interface MobileModalRegisterProps {
     modalBtn: boolean
@@ -34,7 +35,9 @@ const MobileModalRegister: React.FC<MobileModalRegisterProps> = ({ modalBtn, set
                         </DrawerDescription>
                     </DrawerHeader>
                     <DrawerFooter>
-                        <DrawerDescription className="font-bold text-[#F3F5F7] text-start text-[16px]  mt-1 mb-0 flex items-center justify-center gap-2 border border-[#323333] rounded-xl py-4 px-2 cursor-pointer animate hover:scale-[0.9]">
+                        <DrawerDescription className="font-bold text-[#F3F5F7] text-start text-[16px]  mt-1 mb-0 flex items-center justify-center gap-2 border border-[#323333] rounded-xl py-4 px-2 cursor-pointer animate hover:scale-[0.9]"
+                            onClick={() => signIn()}
+                        >
                             <Image alt="insta" src={"/instagram-logo.png"} width={500} height={500} className="w-[50px]" />
                             Продолжить с аккаунтом instagram
                             <MdKeyboardArrowRight size={25} className="mt-1" />

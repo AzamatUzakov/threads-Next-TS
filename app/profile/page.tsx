@@ -2,21 +2,23 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { IoLogoInstagram } from "react-icons/io5";
 import { MdOutlineAnalytics } from "react-icons/md";
+import { getServerSession } from "next-auth";
 
-interface pageProps { }
+const page = async () => {
+	const session = await getServerSession()
+	console.log(session);
 
-const page: React.FC<pageProps> = () => {
 	return (
 		<>
 
 			<div className="w-full">
 				<div className="flex justify-between">
 					<div>
-						<p className="text-xl text-[#F3F5F7] font-bold">Azamat Uzakov</p>
-						<p className="text-sm text-[#F3F5F7] mt-[-1px]">18_.aza._1</p>
+						<p className="text-xl text-[#F3F5F7] font-bold">{ session?.user?.name}</p>
+						<p className="text-sm text-[#F3F5F7] mt-[-1px]">{ session?.user?.email}</p>
 					</div>
 					<Avatar className="w-[75px] h-[75px] rounded-2xl">
-						<AvatarImage className="rounded-full w-full" src="https://github.com/shadcn.png" />
+						<AvatarImage className="rounded-full w-full" src={session?.user?.image || ""} />
 						<AvatarFallback>CN</AvatarFallback>
 					</Avatar>
 				</div>
@@ -26,15 +28,15 @@ const page: React.FC<pageProps> = () => {
 
 						<div className="flex items-center">
 							<Avatar className="w-[20px] h-[20px] rounded-2xl">
-								<AvatarImage className="rounded-full w-full" src="https://github.com/shadcn.png" />
+								<AvatarImage className="rounded-full w-full" src={session?.user?.image || ""} />
 								<AvatarFallback>CN</AvatarFallback>
 							</Avatar>
 							<Avatar className="w-[20px] h-[20px] rounded-2xl ml-[-5px]">
-								<AvatarImage className="rounded-full w-full" src="https://github.com/shadcn.png" />
+								<AvatarImage className="rounded-full w-full" src={session?.user?.image || ""} />
 								<AvatarFallback>CN</AvatarFallback>
 							</Avatar>
 							<Avatar className="w-[20px] h-[20px] rounded-2xl ml-[-5px]">
-								<AvatarImage className="rounded-full w-full" src="https://github.com/shadcn.png" />
+								<AvatarImage className="rounded-full w-full" src={session?.user?.image || ""} />
 								<AvatarFallback>CN</AvatarFallback>
 							</Avatar>
 						</div>

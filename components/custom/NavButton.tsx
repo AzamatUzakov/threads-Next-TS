@@ -7,6 +7,7 @@ import { FiHeart } from "react-icons/fi";
 import { GoHomeFill, GoPerson } from "react-icons/go";
 import { IoSearch } from "react-icons/io5";
 import MobileModalRegister from "./MobileModalRegister";
+import { useSession } from "next-auth/react";
 
 interface NavButtonProps {
 
@@ -33,7 +34,7 @@ const NavButton: React.FC<NavButtonProps> = () => {
     const [actText, setActText] = useState<null | string | number>(0)
     const [modalBtn, setModalBtn] = useState(false)
 
-
+    const { data: session } = useSession()
     return (
         <>
 
@@ -42,7 +43,13 @@ const NavButton: React.FC<NavButtonProps> = () => {
                 {icons.map((icon, index) => {
                     return (
                         <div key={index}
-                            onClick={() => { setActText(index), index === 2 || index === 3 ? setModalBtn(true) : setModalBtn(false) }}
+                            onClick={() => {
+                                setActText(index);
+                                if (!session) {
+                                    setModalBtn(index >= 2)
+                                } else { setModalBtn(false) }
+
+                            }}
                             className={`hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-5 animate text-[25px] rounded-xl cursor-pointer ${actText === index ? "text-white" : "text-[#4d4d4d]"}`}
                         >
                             {icon}
