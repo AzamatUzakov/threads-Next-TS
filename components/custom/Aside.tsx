@@ -58,7 +58,7 @@ const Aside: React.FC = () => {
                                         setActText(index);
 
                                         if (!session) {
-                                            setModalBtn(index >= 3)
+                                            setModalBtn(index >= 2)
                                         } else { setModalBtn(false) }
 
                                     }}
@@ -74,7 +74,7 @@ const Aside: React.FC = () => {
                     <button onClick={() => session ? setModalBtn(false) : setModalBtn(true)}>
                         <div className="hover:bg-[rgba(71,71,71,0.49)] w-full flex justify-center py-2.5 animate rounded-lg"><LuPin color="" className="text-[gray] text-[25px] cursor-pointer" /></div>
                     </button>
-
+    
 
 
                     <DropdownMenu>
